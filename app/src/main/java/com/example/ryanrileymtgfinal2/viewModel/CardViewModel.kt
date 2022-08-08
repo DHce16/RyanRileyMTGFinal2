@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ryanrileymtgfinal2.api.CardRepository
+import com.example.ryanrileymtgfinal2.model.BoosterNode
 import com.example.ryanrileymtgfinal2.view.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -36,6 +37,11 @@ class CardViewModel @Inject constructor(
     private val _boosterList = MutableLiveData<UIState>()
     val boosterList: LiveData<UIState> get() = _boosterList
 
+    private val _boosterDetails = MutableLiveData<UIState>()
+    val boosterDetails: LiveData<UIState> get() = _boosterDetails
+
+    lateinit var currentBooster: BoosterNode
+
     fun getBoosterList() {
         viewModelSafeScope.launch (dispatcher) {
             repository.getBoosterList().collect {
@@ -44,5 +50,12 @@ class CardViewModel @Inject constructor(
         }
     }
 
+//    fun getBoosterDetails()
+
     fun setLoadingState() { _boosterList.value = UIState.Loading}
+
+    fun setBoosterDetails(node: BoosterNode) {
+        currentBooster = node
+        _boosterDetails.value = UIState.Loading
+    }
 }

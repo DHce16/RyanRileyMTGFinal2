@@ -32,55 +32,24 @@
             app:layout_constraintTop_toBottomOf="@id/tv_detail_title_text" />
 
         <TextView
-            android:id="@+id/tv_detail_episodes"
+            android:id="@+id/tv_codes_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
+            android:text="Code Name: "
+            app:layout_constraintEnd_toStartOf="@id/tv_real_codes"
             app:layout_constraintStart_toStartOf="@id/iv_detail_image"
             app:layout_constraintTop_toBottomOf="@id/iv_detail_image" />
 
         <TextView
-            android:id="@+id/tv_detail_recommendations"
+            android:id="@+id/tv_real_codes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change This"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_episodes"
-            app:layout_constraintEnd_toEndOf="@id/tv_detail_episodes"
-            app:layout_constraintStart_toStartOf="@id/tv_detail_episodes"/>
+            app:layout_constraintStart_toEndOf="@id/tv_codes_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_codes_name"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_details_recommendations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_recommendations"
-            app:layout_constraintBottom_toTopOf="@id/v_barrier"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-        <View
-            android:id="@+id/v_barrier"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <ProgressBar
-            android:id="@+id/pb_details_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_details_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
