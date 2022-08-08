@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:overScrollMode="never"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,12 +43,18 @@
             android:id="@+id/tv_real_codes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
             app:layout_constraintStart_toEndOf="@id/tv_codes_name"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_image" />
+
+        <TextView
+            android:id="@+id/tv_details_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_image"
             app:layout_constraintTop_toBottomOf="@id/tv_codes_name"
-            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"/>
-
-
-
+            android:visibility="gone"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

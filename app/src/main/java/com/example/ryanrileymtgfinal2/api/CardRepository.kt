@@ -29,9 +29,19 @@ class CardRepositoryImpl @Inject constructor(private val cards: Cards): CardRepo
             }
         }
 
-    override suspend fun getBoosterDetails(code: String): Flow<UIState> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getBoosterDetails(code: String): Flow<UIState> =
+        flow {
+            try {
+                val response = cards.getBoosterDetails(code = code)
+                if (response.isSuccessful) {
+                    emit( response.body()?.let {
+                        UIState.Success(it)
+                    } ?: throw Exception("Null Response"))
+                } else throw Exception("Failed network call")
+            } catch (e: Exception) {
+                emit(UIState.Error(e))
+            }
+        }
 
     override suspend fun getCardList(code: String): Flow<UIState> {
         TODO("Not yet implemented")
