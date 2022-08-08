@@ -27,6 +27,6 @@ class BoosterListFragment : ViewModelFragment() {
     }
 
     private fun configureObserver() {
-
+//    this
     }
 }
