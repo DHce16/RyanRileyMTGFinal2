@@ -66,6 +66,9 @@ class BoosterDrawFragment: ViewModelFragment() {
             tvCodesName.apply {
                 visibility = View.VISIBLE
             }
+            btnOpenBooster.apply {
+                visibility = View.VISIBLE
+            }
         }
     }
 
@@ -76,6 +79,7 @@ class BoosterDrawFragment: ViewModelFragment() {
             tvRealCodes.visibility = View.GONE
             tvCodesName.visibility = View.GONE
             tvDetailsError.visibility = View.GONE
+            btnOpenBooster.visibility = View.GONE
             Log.e("tag", "this here")
         }
         viewModel.getBoosterDetails(viewModel.currentBooster.code)

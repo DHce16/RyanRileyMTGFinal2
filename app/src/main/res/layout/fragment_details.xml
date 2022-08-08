@@ -56,6 +56,15 @@
             app:layout_constraintTop_toBottomOf="@id/tv_codes_name"
             android:visibility="gone"/>
 
+        <Button
+            android:id="@+id/btn_open_booster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN BOOSTER"
+            app:layout_constraintTop_toBottomOf="@id/tv_details_error"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
