@@ -18,8 +18,8 @@ data class BoosterDetailsResponse(
 
 // for cardList
 data class CardResponse(
-    val data: List<CardData>
+    val cards: List<CardData>
 )
 data class CardData(
-    val imageUrl: String
+    val imageUrl: String?
 )

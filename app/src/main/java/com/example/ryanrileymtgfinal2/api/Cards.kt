@@ -18,8 +18,9 @@ interface Cards {
         @Path("code") code: String
     ): Response<BoosterDetailsResponse>
 
-    @GET("sets")
+    @GET("sets/{code}/booster")
     suspend fun getCardList(
+        @Path("code") code: String
     ): Response<CardResponse>
 
     companion object{

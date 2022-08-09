@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ryanrileymtgfinal2.api.CardRepository
 import com.example.ryanrileymtgfinal2.model.BoosterNode
+import com.example.ryanrileymtgfinal2.model.CardData
 import com.example.ryanrileymtgfinal2.view.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -40,7 +41,14 @@ class CardViewModel @Inject constructor(
     private val _boosterDetails = MutableLiveData<UIState>()
     val boosterDetails: LiveData<UIState> get() = _boosterDetails
 
+    private val _cardList = MutableLiveData<UIState>()
+    val carList: LiveData<UIState> get() = _cardList
+
+    private val _cardDetails = MutableLiveData<UIState>()
+    val cardDetails: LiveData<UIState> get() = _cardDetails
+
     lateinit var currentBooster: BoosterNode
+    lateinit var currentCard: CardData
 
     fun getBoosterList() {
         viewModelSafeScope.launch (dispatcher) {
@@ -58,10 +66,33 @@ class CardViewModel @Inject constructor(
         }
     }
 
+    fun getCardList(code: String){
+        viewModelScope.launch (dispatcher) {
+            repository.getCardList(code).collect() {
+                _cardList.postValue(it)
+            }
+        }
+    }
+
+    fun getCardDetails(Url: String){
+        viewModelScope.launch {
+            repository.getCardDetails(Url).collect {
+                _cardDetails.postValue(it)
+            }
+        }
+    }
+
     fun setLoadingState() { _boosterList.value = UIState.Loading}
+
+    fun setDrawnLoadingState() { _cardList.value = UIState.Loading}
 
     fun setBoosterDetails(node: BoosterNode) {
         currentBooster = node
         _boosterDetails.value = UIState.Loading
+    }
+
+    fun setCardDetails(data: CardData) {
+        currentCard = data
+        _cardDetails.value =UIState.Loading
     }
 }

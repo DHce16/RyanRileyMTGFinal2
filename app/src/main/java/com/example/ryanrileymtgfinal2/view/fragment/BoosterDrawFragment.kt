@@ -94,7 +94,7 @@ class BoosterDrawFragment: ViewModelFragment() {
     }
 
     private fun goToCardList() {
-        viewModel.setLoadingState()
+        viewModel.setDrawnLoadingState()
         findNavController().navigate(
             BoosterDrawFragmentDirections.navClosedPackToOpen(codeSaved)
         )

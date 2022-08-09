@@ -20,7 +20,6 @@ class BoosterListFragment : ViewModelFragment() {
 
     private lateinit var boosterListPageAdapter: BoosterListPageAdapter
 
-    private var currentOffset = 0
     private var shouldUpdateList = false
 
     override fun onCreateView(
@@ -37,7 +36,7 @@ class BoosterListFragment : ViewModelFragment() {
         viewModel.boosterList.observe(viewLifecycleOwner) {
             when (it) {
                 is UIState.Success<*> -> {
-                    Log.e("TAG", "configureObserver: sus")
+//                    Log.e("TAG", "configureObserver: sus")
                     renderList(it.response as BoosterResponse)
                 }
                 is UIState.Error -> {
