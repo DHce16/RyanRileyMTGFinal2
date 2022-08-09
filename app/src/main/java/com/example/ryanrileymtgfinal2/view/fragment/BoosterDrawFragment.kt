@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.ryanrileymtgfinal2.R
 import com.example.ryanrileymtgfinal2.databinding.FragmentDetailsBinding
@@ -16,6 +18,8 @@ class BoosterDrawFragment: ViewModelFragment() {
     private var _binding: FragmentDetailsBinding? = null
     private val binding: FragmentDetailsBinding get() = _binding!!
 
+    private lateinit var codeSaved: String
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,6 +27,9 @@ class BoosterDrawFragment: ViewModelFragment() {
     ): View? {
         _binding = FragmentDetailsBinding.inflate(layoutInflater)
         configureObserver()
+        binding.btnOpenBooster.setOnClickListener {
+            goToCardList()
+        }
         return binding.root
     }
 
@@ -58,6 +65,7 @@ class BoosterDrawFragment: ViewModelFragment() {
 
             tvRealCodes.apply {
                 text = node.code
+                codeSaved = node.code
                 visibility = View.VISIBLE
             }
             ivDetailImage.apply {
@@ -83,6 +91,13 @@ class BoosterDrawFragment: ViewModelFragment() {
             Log.e("tag", "this here")
         }
         viewModel.getBoosterDetails(viewModel.currentBooster.code)
+    }
+
+    private fun goToCardList() {
+        viewModel.setLoadingState()
+        findNavController().navigate(
+            BoosterDrawFragmentDirections.navClosedPackToOpen(codeSaved)
+        )
     }
 
     override fun onDestroyView() {
