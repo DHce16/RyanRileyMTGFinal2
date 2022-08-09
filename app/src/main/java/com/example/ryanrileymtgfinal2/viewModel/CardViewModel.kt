@@ -74,13 +74,13 @@ class CardViewModel @Inject constructor(
         }
     }
 
-    fun getCardDetails(Url: String){
-        viewModelScope.launch {
-            repository.getCardDetails(Url).collect {
-                _cardDetails.postValue(it)
-            }
-        }
-    }
+//    fun getCardDetails(Url: String){
+//        viewModelScope.launch {
+//            repository.getCardList(Url).collect {
+//                _cardDetails.postValue(it)
+//            }
+//        }
+//    }
 
     fun setLoadingState() { _boosterList.value = UIState.Loading}
 

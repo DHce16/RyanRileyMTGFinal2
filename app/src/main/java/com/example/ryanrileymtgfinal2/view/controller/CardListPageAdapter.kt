@@ -9,7 +9,7 @@ import com.example.ryanrileymtgfinal2.R
 import com.example.ryanrileymtgfinal2.databinding.CardListItemBinding
 import com.example.ryanrileymtgfinal2.model.CardData
 import com.example.ryanrileymtgfinal2.utils.httpConvert
-import com.squareup.picasso.Picasso
+//import com.squareup.picasso.Picasso
 
 class CardListPageAdapter (
     private val cardList: MutableList<CardData> = mutableListOf(),
@@ -37,7 +37,7 @@ class CardListPageAdapter (
                 .placeholder(R.drawable.magic_icon)
                 .into(binding.ivCardListImage)
 
-            Log.d("Tag", "${data.imageUrl?.httpConvert()}")
+//            Log.d("Tag", "${data.imageUrl?.httpConvert()}")
             binding.root.setOnClickListener {
                 openCardDetails(data!!)
             }

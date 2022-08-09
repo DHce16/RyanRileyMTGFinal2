@@ -23,6 +23,8 @@ interface Cards {
         @Path("code") code: String
     ): Response<CardResponse>
 
+//    @GET("")
+
     companion object{
         const val BASE_URL = "https://api.magicthegathering.io/v1/"
 
