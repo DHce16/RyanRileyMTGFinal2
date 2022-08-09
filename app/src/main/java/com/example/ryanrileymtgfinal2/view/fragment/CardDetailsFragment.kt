@@ -1,6 +1,7 @@
 package com.example.ryanrileymtgfinal2.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,35 +26,37 @@ class CardDetailsFragment:  ViewModelFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCardDetailsBinding.inflate(layoutInflater)
-        configureObserver()
+//        configureObserver()
+        renderCardDetails()
         return binding.root
     }
 
     //Sees if the data was correctly loaded in
-    private fun configureObserver() {
-        viewModel.cardDetails.observe(viewLifecycleOwner) {
-            when(it) {
-                is UIState.Success<*> -> {
-                    renderCardDetails(it.response as CardData)
-                }
-                is UIState.Error -> {
-                    binding.apply {
-                        tvCardDetailsErrorText.visibility = View.VISIBLE
-                        tvCardDetailsErrorText.text = it.error.message
-                    }
-                }
-                is UIState.Loading -> { loadingState() }
-            }
-        }
-    }
+//    private fun configureObserver() {
+//        viewModel.cardDetails.observe(viewLifecycleOwner) {
+//            when(it) {
+//                is UIState.Success<*> -> {
+//                    renderCardDetails(it.response as CardData)
+//                }
+//                is UIState.Error -> {
+//                    binding.apply {
+//                        tvCardDetailsErrorText.visibility = View.VISIBLE
+//                        tvCardDetailsErrorText.text = it.error.message
+//                    }
+//                }
+//                is UIState.Loading -> { loadingState() }
+//            }
+//        }
+//    }
 
     //displays the image and gets rid of the error text
-    private fun renderCardDetails(data: CardData) {
+    private fun renderCardDetails() {
         Glide.with(binding.ivCardDetailImage)
-            .load(data.imageUrl?.httpConvert())
+            .load(args.input)
             .placeholder(R.drawable.magic_icon)
             .into(binding.ivCardDetailImage)
 
+        Log.d("Tag", "${args.input}")
         binding.apply {
             tvCardDetailsErrorText.visibility = View.GONE
             ivCardDetailImage.visibility = View.VISIBLE
