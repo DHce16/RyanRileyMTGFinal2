@@ -14,6 +14,7 @@ import com.example.ryanrileymtgfinal2.model.BoosterResponse
 import com.example.ryanrileymtgfinal2.view.UIState
 import com.example.ryanrileymtgfinal2.view.controller.BoosterListPageAdapter
 
+//for BoosterList page
 class BoosterListFragment : ViewModelFragment() {
     private var _binding: FragmentBoosterListBinding? = null
     private val binding: FragmentBoosterListBinding get() = _binding!!
@@ -32,6 +33,7 @@ class BoosterListFragment : ViewModelFragment() {
         return binding.root
     }
 
+    // gets the observed state of the API response
     private fun configureObserver() {
         viewModel.boosterList.observe(viewLifecycleOwner) {
             when (it) {

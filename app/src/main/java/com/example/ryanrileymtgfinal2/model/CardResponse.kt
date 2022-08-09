@@ -1,7 +1,5 @@
 package com.example.ryanrileymtgfinal2.model
 
-import org.w3c.dom.Node
-
 // for boosterList
 data class BoosterResponse(
     val sets: List<BoosterNode>

@@ -1,7 +1,6 @@
 package com.example.ryanrileymtgfinal2.api
 
 import com.example.ryanrileymtgfinal2.model.BoosterDetailsResponse
-import com.example.ryanrileymtgfinal2.model.BoosterNode
 import com.example.ryanrileymtgfinal2.model.BoosterResponse
 import com.example.ryanrileymtgfinal2.model.CardResponse
 import retrofit2.Response

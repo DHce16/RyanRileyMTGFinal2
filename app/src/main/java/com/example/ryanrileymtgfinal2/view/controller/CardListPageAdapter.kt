@@ -1,6 +1,6 @@
 package com.example.ryanrileymtgfinal2.view.controller
 
-import android.util.Log
+//import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +11,7 @@ import com.example.ryanrileymtgfinal2.model.CardData
 import com.example.ryanrileymtgfinal2.utils.httpConvert
 //import com.squareup.picasso.Picasso
 
+//adapter for recyclerView for cardList
 class CardListPageAdapter (
     private val cardList: MutableList<CardData> = mutableListOf(),
     private val openCardDetails: (CardData) -> Unit

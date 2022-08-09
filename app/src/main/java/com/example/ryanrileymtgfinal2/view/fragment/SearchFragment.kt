@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.ryanrileymtgfinal2.databinding.FragmentSearchBinding
 
+// starting page
+// for the search page
 class SearchFragment : ViewModelFragment() {
 
     private var _binding: FragmentSearchBinding? = null

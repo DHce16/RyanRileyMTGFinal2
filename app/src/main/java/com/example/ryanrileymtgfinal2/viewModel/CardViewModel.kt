@@ -12,11 +12,9 @@ import com.example.ryanrileymtgfinal2.view.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 const val TAG = "CardViewModel"
 @HiltViewModel
@@ -73,14 +71,6 @@ class CardViewModel @Inject constructor(
             }
         }
     }
-
-//    fun getCardDetails(Url: String){
-//        viewModelScope.launch {
-//            repository.getCardList(Url).collect {
-//                _cardDetails.postValue(it)
-//            }
-//        }
-//    }
 
     fun setLoadingState() { _boosterList.value = UIState.Loading}
 

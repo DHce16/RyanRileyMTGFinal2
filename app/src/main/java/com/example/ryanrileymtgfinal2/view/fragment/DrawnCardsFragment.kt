@@ -14,7 +14,7 @@ import com.example.ryanrileymtgfinal2.model.CardResponse
 import com.example.ryanrileymtgfinal2.view.UIState
 import com.example.ryanrileymtgfinal2.view.controller.CardListPageAdapter
 
-
+// for the list of drawn cards page
 class DrawnCardsFragment: ViewModelFragment() {
     private var _binding: FragmentCardListBinding? = null
     private val binding: FragmentCardListBinding get() = _binding!!
@@ -34,6 +34,7 @@ class DrawnCardsFragment: ViewModelFragment() {
         return binding.root
     }
 
+    // gets the observed state of the API response
     private fun configureObserver() {
         viewModel.carList.observe(viewLifecycleOwner) {
             when (it) {

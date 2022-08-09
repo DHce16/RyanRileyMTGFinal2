@@ -9,11 +9,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.ryanrileymtgfinal2.R
 import com.example.ryanrileymtgfinal2.databinding.FragmentCardDetailsBinding
-import com.example.ryanrileymtgfinal2.model.CardData
-import com.example.ryanrileymtgfinal2.model.CardResponse
-import com.example.ryanrileymtgfinal2.utils.httpConvert
-import com.example.ryanrileymtgfinal2.view.UIState
 
+// for Card Details page
 class CardDetailsFragment:  ViewModelFragment() {
     private var _binding: FragmentCardDetailsBinding? = null
     private val binding: FragmentCardDetailsBinding get() = _binding!!
@@ -26,28 +23,9 @@ class CardDetailsFragment:  ViewModelFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCardDetailsBinding.inflate(layoutInflater)
-//        configureObserver()
         renderCardDetails()
         return binding.root
     }
-
-    //Sees if the data was correctly loaded in
-//    private fun configureObserver() {
-//        viewModel.cardDetails.observe(viewLifecycleOwner) {
-//            when(it) {
-//                is UIState.Success<*> -> {
-//                    renderCardDetails(it.response as CardData)
-//                }
-//                is UIState.Error -> {
-//                    binding.apply {
-//                        tvCardDetailsErrorText.visibility = View.VISIBLE
-//                        tvCardDetailsErrorText.text = it.error.message
-//                    }
-//                }
-//                is UIState.Loading -> { loadingState() }
-//            }
-//        }
-//    }
 
     //displays the image and gets rid of the error text
     private fun renderCardDetails() {
@@ -68,7 +46,6 @@ class CardDetailsFragment:  ViewModelFragment() {
             tvCardDetailsErrorText.visibility = View.GONE
             ivCardDetailImage.visibility = View.GONE
         }
-//        viewModel.getCardDetails(args.input)
     }
 
     override fun onDestroyView() {

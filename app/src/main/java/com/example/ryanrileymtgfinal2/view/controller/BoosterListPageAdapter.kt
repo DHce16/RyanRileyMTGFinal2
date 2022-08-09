@@ -7,8 +7,8 @@ import com.bumptech.glide.Glide
 import com.example.ryanrileymtgfinal2.R
 import com.example.ryanrileymtgfinal2.databinding.BoosterListItemBinding
 import com.example.ryanrileymtgfinal2.model.BoosterNode
-import com.example.ryanrileymtgfinal2.model.CardData
 
+// adapter for recyclerView for BoosterList
 class BoosterListPageAdapter(
     private val boosterList: MutableList<BoosterNode> = mutableListOf(),
     private val openBoosterDetails: (BoosterNode) -> Unit
