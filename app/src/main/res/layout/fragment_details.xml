@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:overScrollMode="never"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,55 +31,39 @@
             app:layout_constraintTop_toBottomOf="@id/tv_detail_title_text" />
 
         <TextView
-            android:id="@+id/tv_detail_episodes"
+            android:id="@+id/tv_codes_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
+            android:text="Code Name: "
+            app:layout_constraintEnd_toStartOf="@id/tv_real_codes"
             app:layout_constraintStart_toStartOf="@id/iv_detail_image"
             app:layout_constraintTop_toBottomOf="@id/iv_detail_image" />
 
         <TextView
-            android:id="@+id/tv_detail_recommendations"
+            android:id="@+id/tv_real_codes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change This"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_episodes"
-            app:layout_constraintEnd_toEndOf="@id/tv_detail_episodes"
-            app:layout_constraintStart_toStartOf="@id/tv_detail_episodes"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_details_recommendations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_recommendations"
-            app:layout_constraintBottom_toTopOf="@id/v_barrier"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
-
-        <View
-            android:id="@+id/v_barrier"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ProgressBar
-            android:id="@+id/pb_details_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
+            app:layout_constraintStart_toEndOf="@id/tv_codes_name"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_image" />
 
         <TextView
             android:id="@+id/tv_details_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_codes_name"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_open_booster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN BOOSTER"
+            app:layout_constraintTop_toBottomOf="@id/tv_details_error"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_image"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

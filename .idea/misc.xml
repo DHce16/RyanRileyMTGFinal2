@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/booster_list_item.xml" value="0.13723511604439959" />
+        <entry key="app/src/main/res/layout/card_list_item.xml" value="0.12864583333333332" />
         <entry key="app/src/main/res/layout/fragment_booster_list.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/fragment_card_details.xml" value="0.13723511604439959" />
+        <entry key="app/src/main/res/layout/fragment_card_list.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.13723511604439959" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

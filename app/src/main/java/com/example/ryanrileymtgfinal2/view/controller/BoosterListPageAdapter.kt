@@ -5,17 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ryanrileymtgfinal2.R
-import com.example.ryanrileymtgfinal2.databinding.ActivityMainBinding
 import com.example.ryanrileymtgfinal2.databinding.BoosterListItemBinding
-import com.example.ryanrileymtgfinal2.model.BoosterData
 import com.example.ryanrileymtgfinal2.model.BoosterNode
+import com.example.ryanrileymtgfinal2.model.CardData
 
 class BoosterListPageAdapter(
-    private val boosterList: MutableList<BoosterData> = mutableListOf(),
+    private val boosterList: MutableList<BoosterNode> = mutableListOf(),
     private val openBoosterDetails: (BoosterNode) -> Unit
 ) : RecyclerView.Adapter<BoosterListPageAdapter.BoosterViewHolder>() {
 
-    fun setBoosterList(newList: List<BoosterData>, updateList: Boolean) {
+    fun setBoosterList(newList: List<BoosterNode>, updateList: Boolean) {
         if (updateList) {
             boosterList.addAll(newList)
             notifyItemRangeChanged(0, itemCount)
@@ -29,14 +28,14 @@ class BoosterListPageAdapter(
     inner class BoosterViewHolder(
         private val binding: BoosterListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: BoosterData) {
-            binding.tvBoosterListName.text = data.node?.name
+        fun onBind(data: BoosterNode) {
+            binding.tvBoosterListName.text = data.name
             Glide.with(binding.ivBoosterListImage)
                 .load(R.drawable.magic_icon)
                 .into(binding.ivBoosterListImage)
 
             binding.btnBoosterListDetails.setOnClickListener {
-                openBoosterDetails(data.node!!)
+                openBoosterDetails(data!!)
             }
         }
     }

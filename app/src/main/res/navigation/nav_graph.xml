@@ -51,6 +51,9 @@
     <fragment
         android:id="@+id/nav_card_details"
         android:name="com.example.ryanrileymtgfinal2.view.fragment.CardDetailsFragment">
+        <argument
+            android:name="input"
+            app:argType="string"/>
     </fragment>
 
 </navigation>

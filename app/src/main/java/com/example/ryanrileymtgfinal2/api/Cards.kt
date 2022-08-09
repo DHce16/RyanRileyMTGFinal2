@@ -1,5 +1,7 @@
 package com.example.ryanrileymtgfinal2.api
 
+import com.example.ryanrileymtgfinal2.model.BoosterDetailsResponse
+import com.example.ryanrileymtgfinal2.model.BoosterNode
 import com.example.ryanrileymtgfinal2.model.BoosterResponse
 import com.example.ryanrileymtgfinal2.model.CardResponse
 import retrofit2.Response
@@ -8,18 +10,23 @@ import retrofit2.http.Path
 
 interface Cards {
 
-    @GET(SETS)
+    @GET("sets")
     suspend fun getBoosterList(): Response<BoosterResponse>
 
-    @GET(SETS)
+    @GET("sets/{code}")
+    suspend fun getBoosterDetails(
+        @Path("code") code: String
+    ): Response<BoosterDetailsResponse>
+
+    @GET("sets/{code}/booster")
     suspend fun getCardList(
-        @Path(BOOSTER) cardId: Int
+        @Path("code") code: String
     ): Response<CardResponse>
+
+//    @GET("")
 
     companion object{
         const val BASE_URL = "https://api.magicthegathering.io/v1/"
-        const val SETS = "sets"
-        const val CODE = "ktk"
-        const val BOOSTER = "$CODE/booster"
+
     }
 }
